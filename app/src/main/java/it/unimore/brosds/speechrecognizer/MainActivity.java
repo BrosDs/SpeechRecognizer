@@ -1,6 +1,7 @@
 package it.unimore.brosds.speechrecognizer;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
@@ -8,13 +9,16 @@ import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends Activity {
+    public final static String TITLE="it.unimore.brosds.speechrecognizer.TITLE";
+    public final static String DAY="it.unimore.brosds.speechrecognizer.DAY";
+    public final static String MONTH="it.unimore.brosds.speechrecognizer.MONTH";
+    public final static String START_TIME="it.unimore.brosds.speechrecognizer.START_TIME";
 
     private TextView txtSpeechInput;
     private ImageButton btnSpeak;
@@ -69,7 +73,35 @@ public class MainActivity extends Activity {
 
                     ArrayList<String> result = data
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                    txtSpeechInput.setText(result.get(0));
+                    String[] all_words = result.get(0).toLowerCase().split(" ");
+                    String title=null;
+                    String day=null;
+                    String month=null;
+                    String start_time=null;
+
+                    if(all_words[0].equals("evento"))
+                    {
+                        title = all_words[1];
+                    }
+
+                    if(all_words[2].equals("il"))
+                    {
+                        day = all_words[3];
+                        month = all_words[4];
+                    }
+
+                    if(all_words[5].equals("dalle"))
+                    {
+                       start_time = all_words[6];
+                    }
+
+
+                    Intent intent = new Intent(this, ShowEventRecap.class);
+                    intent.putExtra(TITLE, title);
+                    intent.putExtra(DAY, day);
+                    intent.putExtra(MONTH, month);
+                    intent.putExtra(START_TIME, start_time);
+                    startActivity(intent);
                 }
                 break;
             }
