@@ -1,14 +1,15 @@
 package it.unimore.brosds.speechrecognizer;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Locale;
 
 import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.transition.Explode;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -67,7 +68,7 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
+        getWindow().setExitTransition(new Explode());
         switch (requestCode) {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
@@ -102,7 +103,9 @@ public class MainActivity extends Activity {
                     intent.putExtra(DAY, day);
                     intent.putExtra(MONTH, month);
                     intent.putExtra(START_TIME, start_time);
-                    startActivity(intent);
+                    startActivity(intent,
+                            ActivityOptions
+                                    .makeSceneTransitionAnimation(this).toBundle());
                 }
                 break;
             }
