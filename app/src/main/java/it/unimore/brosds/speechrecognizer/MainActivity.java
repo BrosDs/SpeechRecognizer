@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
                 promptSpeechInput();
             }
         });
+        txtSpeechInput.setText("evento barbiere il 2 marzo dalle 10");
 
     }
 
