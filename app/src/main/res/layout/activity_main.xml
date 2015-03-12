@@ -1,8 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/background_dark"
     android:orientation="vertical"
     android:clickable="true">
 
@@ -28,24 +26,28 @@
         android:weightSum="1"
         android:id="@+id/linearLayout">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/tap_on_mic"
-            android:textColor="@color/white"
-            android:textSize="15dp"
-            android:textStyle="normal" />
     </LinearLayout>
 
     <ImageButton
         android:id="@+id/btnSpeak"
-        android:layout_width="91dp"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:src="@android:drawable/ic_btn_speak_now"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@color/theme_default_primary"
+        android:src="@mipmap/speak_now_mic"
         android:layout_weight="5.95"
-        android:layout_above="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:elevation="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/tap_on_mic"
+        android:textColor="@color/white"
+        android:textStyle="normal"
+        android:layout_below="@+id/btnSpeak"
+        android:layout_centerHorizontal="true"
+        android:textSize="24dp" />
 
 </RelativeLayout>

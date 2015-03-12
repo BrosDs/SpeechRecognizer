@@ -68,7 +68,6 @@ public class MainActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        getWindow().setExitTransition(new Explode());
         switch (requestCode) {
             case REQ_CODE_SPEECH_INPUT: {
                 if (resultCode == RESULT_OK && null != data) {
@@ -103,6 +102,8 @@ public class MainActivity extends Activity {
                     intent.putExtra(DAY, day);
                     intent.putExtra(MONTH, month);
                     intent.putExtra(START_TIME, start_time);
+                    getWindow().setExitTransition(new Explode());
+
                     startActivity(intent,
                             ActivityOptions
                                     .makeSceneTransitionAnimation(this).toBundle());

@@ -1,12 +1,13 @@
 package it.unimore.brosds.speechrecognizer;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.widget.EditText;
 
 
-public class ShowEventRecap extends ActionBarActivity {
+public class ShowEventRecap extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
