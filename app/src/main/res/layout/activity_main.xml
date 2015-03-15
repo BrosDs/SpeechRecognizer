@@ -32,12 +32,10 @@
         android:id="@+id/btnSpeak"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:background="@color/theme_default_primary"
+        android:background="@android:color/transparent"
         android:src="@mipmap/speak_now_mic"
-        android:layout_weight="5.95"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:elevation="5dp"/>
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
